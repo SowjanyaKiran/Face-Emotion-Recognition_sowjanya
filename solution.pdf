@@ -1,0 +1,46 @@
+🧪 How to Use the Project
+1. Install Requirements
+bash
+Copy
+Edit
+pip install tensorflow matplotlib seaborn kaggle
+2. Download FER2013
+bash
+Copy
+Edit
+# Upload your kaggle.json
+# Place it under ~/.kaggle/kaggle.json or use:
+!mkdir -p ~/.kaggle
+!cp kaggle.json ~/.kaggle/
+!chmod 600 ~/.kaggle/kaggle.json
+
+# Download dataset
+!kaggle datasets download -d msambare/fer2013
+!unzip fer2013.zip -d ./fer2013
+3. Train the Model
+python
+Copy
+Edit
+model.fit(train_generator, validation_data=val_generator, epochs=50, callbacks=[...])
+4. Save the Model
+python
+Copy
+Edit
+model.save("emotion_model.h5")
+5. Evaluate the Model
+python
+Copy
+Edit
+test_loss, test_accuracy = model.evaluate(test_generator)
+print(f"Test Accuracy: {test_accuracy:.4f}")
+6. Run Inference on Single Image
+python
+Copy
+Edit
+predict_emotion("/path/to/test/image.jpg")
+🔁 Want the Full Code as Python Script or Notebook?
+I can generate the following immediately:
+
+📄 predict_emotion.py (script for predictions)
+
+📓 emotion_recognition.ipynb (complete notebook with all steps)
